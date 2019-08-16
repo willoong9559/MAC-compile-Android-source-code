@@ -1,24 +1,27 @@
 # MAC-compiler-Android-source-code
 踩坑日记，记录以供参考
 
-暂并不支持SDK10.14
+我使用的是sdk10.13（命令行工具9.3）
+配置必须环境：
+终端安装findutils
 
-gun-sed环境变量:
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+$ brew install findutils
 
-#set the number of open files to be 1024 
-ulimit -S -n 1024
+终端安装gnu-sed
+
+$ brew install gnu-sed
+
+你还需要安装coreutils：
+$ brew install coreutils
+
+编译需要导入环境变量：
+
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/curl/bin:$PATH
-export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/ed/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-indent/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/gnu-which/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-export PATH="/usr/local/opt/openssl/bin:$PATH"
-export PATH="/usr/local/opt/bc/bin:$PATH"
-export PATH="/usr/local/opt/bison/bin:$PATH"
-export PATH="/usr/local/opt/flex/bin:$PATH"
-export PATH="/usr/local/opt/libxml2/bin:$PATH"
-export PATH="/usr/local/opt/zip/bin:$PATH"
+
+#homebrew给出的环境变量法貌似没用，所以我们建立软链。
+ln -s ../Cellar/openssl/1.0.2s/include/openssl .
+for i in ../Cellar/openssl/1.0.2s/lib/lib*; do ln -vs $i .; done
+
+附：
+xz 是一个使用 LZMA压缩算法的无损数据压缩文件格式，编译有些机型时会用的到。
+前往此处下载并安装：http://macpkg.sourceforge.net
