@@ -5,7 +5,7 @@
 
 https://developer.apple.com/download/more
 
-配置必须环境：
+# 配置必须环境：
 
 终端安装findutils
 
@@ -19,7 +19,7 @@ $ brew install gnu-sed
 
 $ brew install coreutils
 
-编译需要导入环境变量：
+# 编译需要导入环境变量：
 
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:/usr/local/opt/findutils/libexec/gnubin:/usr/local/opt/gnu-sed/libexec/gnubin:/usr/local/opt/curl/bin:$PATH
 
@@ -32,7 +32,7 @@ ulimit -S -n 1024
 
 export PATH="/usr/local/opt/openssl/bin:$PATH"
 
-#homebrew给出的环境变量法貌似没用，所以我们建立软链。
+# homebrew给出的环境变量法貌似没用，所以我们建立软链。
 
 cd /usr/local/include
 
@@ -41,6 +41,9 @@ ln -s ../Cellar/openssl/1.0.2s/include/openssl .
 cd /usr/local/lib
 
 for i in ../Cellar/openssl/1.0.2s/lib/lib*; do ln -vs $i .; done
+
+# 增加头文件elf.h
+后面有提到
 
 附：
 
