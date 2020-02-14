@@ -55,7 +55,3 @@ export CCACHE_DIR=/<path_of_your_choice>/.ccache
 
 export CCACHE_COMPRESS=1
 
-配置jack
-
-export ANDROID_JACK_VM_ARGS="-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx4G"
-
